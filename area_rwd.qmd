@@ -1,0 +1,109 @@
+---
+title: "RWD - Real World Data"
+---
+
+Supporting observational database studies using claims, EHR, registry, and oncology data. Core focus on database access governance, contract checklists, and structured data analysis.
+
+### RWD — Additional Data Access
+
+After completing Step 3, your assigned STRADA schemas become available. Common working schema: `rwe_strada_wrk`. Confirm additional schemas with your Lilly Lead.
+
+### RWD Data Source Reference Library
+
+A centralised reference library containing sample data, data dictionaries, and README documentation for each contracted RWD data source is maintained on the STRADA FSx shared folder:
+
+`\\veo_fsx_prod.aws.lilly.com\veo_fsx\strada\shared_folder\rwe_shared_folder\RWD_data_sample`
+
+::: {.callout-note}
+### Drive Mapping
+If you have mapped the STRADA FSx drive to a local drive letter (e.g., `S:`), the path is: `S:\shared_folder\rwe_shared_folder\RWD_data_sample`
+:::
+
+The following data source folders are available. Each folder contains sample data extracts, data dictionaries, and relevant documentation to help analysts familiarise themselves with the structure and content of the dataset before beginning project work.
+
+| Folder | Data Source | Description |
+|--------|------------|-------------|
+| `flatiron` | Flatiron Health | Oncology-focused electronic health record (EHR) data derived from community and academic oncology practices across the US. |
+| `healthverity` | HealthVerity | De-identified, linked claims and EHR data covering a broad patient population across multiple therapeutic areas. |
+| `IBD_Plexus` | Crohn's & Colitis Foundation IBD Plexus | Registry and real-world data for inflammatory bowel disease (IBD) research, including Crohn's disease and ulcerative colitis. |
+| `iqvia` | IQVIA | Longitudinal claims and prescription data (e.g., PharMetrics Plus, LAAD) supporting retrospective observational studies. |
+| `komodo` | Komodo Health | Large-scale US healthcare claims data providing de-identified patient journeys across payers and care settings. |
+| `optum` | Optum | Integrated claims and EHR data (e.g., Clinformatics, Panther/SES) widely used for epidemiologic and outcomes research. |
+| `Truveta` | Truveta | De-identified EHR data aggregated from major US health systems, with near real-time data availability. |
+| `welldoc` | WellDoc | Digital health and patient-reported outcomes data relevant to chronic disease management studies. |
+
+::: {.callout-important}
+### Database Contract Checklists Required
+Each contracted database requires its own **Database Contract Checklist** before access is granted. Contact **Courtney Vehling** (vehling_courtney_michelle@lilly.com) to obtain the checklist link for each data source. Access to one database does not imply access to others.
+:::
+
+------------------------------------------------------------------------
+
+## Therapeutic Area Resources
+
+The following sections provide data sources, reference materials, and key contacts specific to each therapeutic area (TA). These resources are intended for self-directed learning and day-to-day reference as you begin project work within your assigned TA.
+
+------------------------------------------------------------------------
+
+### Oncology
+
+#### Oncology Data Access — Flatiron & Guardant Health
+
+Sample data and documentation for Flatiron are available in the RWD Data Source Reference Library above (`flatiron` folder). For Guardant Health and other oncology-specific datasets, access must be requested separately.
+
+**Lilly FTE**
+
+Email **Jessica R. Peachey** (peachey.jessica@lilly.com), CC: **Gregory Cunningham** (cunningham_gregory_e@lilly.com) with project details.
+
+**Vendor / Contractor**
+
+Email **Jessica R. Peachey** (peachey.jessica@lilly.com), CC: **Gregory Cunningham** (cunningham_gregory_e@lilly.com) and **Diane Haldane** (haldane_diane_c@lilly.com). Oncology data access requires project-specific justification.
+
+------------------------------------------------------------------------
+
+### Immunology
+
+#### IBD Plexus Data
+
+The **Crohn's & Colitis Foundation IBD Plexus** dataset is a key real-world data source for immunology studies. The README file, data dictionary, and sample data are available in the RWD Data Source Reference Library (`IBD_Plexus` folder).
+
+**Point of contact:** Guangyong Li
+
+#### Immunology RWD Project Workflow
+
+Project work begins after receiving the analysis specifications and code lists from the statistician or scientist. Once the requirements are finalised, programming activities proceed through the following standard steps:
+
+1.  **Cohort Selection** — Identify the study population based on predefined inclusion and exclusion criteria, including index dates and eligibility windows.
+
+2.  **Variable Derivation** — Derive analysis variables for:
+    -   Baseline period (e.g., demographics, clinical characteristics, prior treatments)
+    -   Follow-up period (e.g., exposures, outcomes, censoring variables)
+
+3.  **Outcome Definition** — Construct outcome variables according to the provided specifications and code lists.
+
+4.  **Analysis** — Conduct analyses as specified, including:
+    -   Descriptive analyses (e.g., counts, proportions, summary statistics)
+    -   Statistical modelling or other inferential analyses, when applicable
+
+All steps are implemented in alignment with the approved specifications to ensure consistency, reproducibility, and analytical validity.
+
+------------------------------------------------------------------------
+
+### Cardiometabolic Health (CMH)
+
+*Resources for the CMH therapeutic area are under development and will be added in a future update.*
+
+------------------------------------------------------------------------
+
+### Neuroscience
+
+*Resources for the Neuroscience therapeutic area are under development and will be added in a future update.*
+
+------------------------------------------------------------------------
+
+## RWD — Additional Training
+
+| Course ID | Title |
+|-----------|-------|
+| 9317635 | MED-QUAL: Evaluation of Potential Data Integrity Issues in Approved Documents |
+| 9143108 | LRL-CDOS: DISCLOSE — Register Trial and Post Publicly |

@@ -1,0 +1,43 @@
+project:
+  type: website
+
+website:
+  title: "RWAA SA Team - Analyst Onboarding Guide"
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - text: "Homepage"
+        href: index.qmd
+      - section: "Key Reminder"
+        contents:
+          - href: key_reminder.qmd
+      - section: "Key Difference"
+        contents:
+          - href: key_difference.qmd
+      - section: "Key Contacts"
+        contents:
+          - href: key_contacts.qmd
+      - section: "Common Foundation"
+        contents:
+          - href: step1_identity_manager.qmd
+          - href: step2_cluwe_access.qmd
+          - href: step3_aws_strada.qmd
+          - href: step4_pangaea.qmd
+          - href: step5_personal_folder.qmd
+          - href: step6_analytics_tools.qmd
+          - href: step7_core_training.qmd
+      - section: "Post-Onboarding"
+        contents:
+          - href: area_rwd.qmd
+          - href: area_hta.qmd
+          - href: area_gps.qmd
+          - href: area_heor.qmd
+          - href: post_onboarding.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-title: "Contents"
+    toc-location: right
