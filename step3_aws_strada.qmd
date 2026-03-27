@@ -98,19 +98,19 @@ The macro variable name `rspw` used in `MyEncryptedPwd.sas` is a user-defined co
 ```{r}
 #| eval: false
 #| code-overflow: wrap
-# SAS Code - run in SAS Enterprise Guide, not R
-# %include "/home/&sysuserid/pswd/MyEncryptedPwd.sas";
-# proc sql;
-#   connect to ODBC as Redshift
-#     (dsn=Access_Redshift_Prod password="&rspw" user=&sysuserid);
-#   create table Redshift_schemas_I_can_see as
-#     SELECT * from connection to Redshift
-#     (select distinct schemaname from pg_catalog.pg_tables
-#      where schemaname like 'rwe_strada_%'
-#      union
-#      select distinct schemaname from svv_external_schemas
-#      where schemaname like 'rwe_strada_%');
-# quit;
+ SAS Code - run in SAS Enterprise Guide, not R
+ %include "/home/&sysuserid/pswd/MyEncryptedPwd.sas";
+ proc sql;
+   connect to ODBC as Redshift
+     (dsn=Access_Redshift_Prod password="&rspw" user=&sysuserid);
+   create table Redshift_schemas_I_can_see as
+     SELECT * from connection to Redshift
+     (select distinct schemaname from pg_catalog.pg_tables
+      where schemaname like 'rwe_strada_%'
+      union
+      select distinct schemaname from svv_external_schemas
+      where schemaname like 'rwe_strada_%');
+ quit;
 ```
 
 ### SAS Enterprise Guide — Citrix Apps and Profiles
