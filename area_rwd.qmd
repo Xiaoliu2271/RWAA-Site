@@ -1,14 +1,22 @@
 ---
-title: "RWD - Real World Data"
+title: "RWD and HEOR - Real World Data and Health Economics & Outcomes Research"
 ---
 
-Supporting observational database studies using claims, EHR, registry, and oncology data. Core focus on database access governance, contract checklists, and structured data analysis.
+**RWD** Supports observational database studies using claims, EHR, registry, and oncology data. Core focus on database access governance, contract checklists, and structured data analysis.
+
+**HEOR** Supports cost-effectiveness analyses, budget impact models, patient-reported outcomes, disease burden studies, and payer evidence packages.
 
 ### RWD — Additional Data Access
 
 After completing Step 3, your assigned STRADA schemas become available. Common working schema: `rwe_strada_wrk`. Confirm additional schemas with your Lilly Lead.
 
-### RWD Data Source Reference Library
+### HEOR — Additional Access
+
+HEOR analyses using RWD follow the same STRADA access (Step 3). Discuss with your Lilly Lead which schemas are needed. Ensure Pangaea access (Step 4) covers both the RWD evidence generation and the HEOR modelling components of your project.
+
+For publications, dossiers, and medical communications, complete **Course 9223356** (MedComms RWE and RIM Vaults Guide for HEOR/RWE Users). RIM access follows the same FTE vs. Vendor rules as Step 6.5 — vendors must submit their own request per compound.
+
+### RWD & HEOR Data Source Reference Library
 
 A centralised reference library containing sample data, data dictionaries, and README documentation for each contracted RWD data source is maintained on the STRADA FSx shared folder:
 
@@ -59,6 +67,34 @@ Email **Jessica R. Peachey** (peachey.jessica@lilly.com), CC: **Gregory Cunningh
 
 Email **Jessica R. Peachey** (peachey.jessica@lilly.com), CC: **Gregory Cunningham** (cunningham_gregory_e@lilly.com) and **Diane Haldane** (haldane_diane_c@lilly.com). Oncology data access requires project-specific justification.
 
+**Point of contact:** Yimei Han
+
+#### Oncology Project Workflow
+
+Project work begins after receiving the analysis specifications and code lists from the statistician or scientist. Once the requirements are finalized, programming activities proceed through the following standard steps:
+
+1. **Cohort Selection** — Identify the study population based on predefined inclusion and exclusion criteria, including:
+    - Select data sources (e.g. claims ,EMR, Registry)
+    - Define Diagnosis, procedure and code lists (e.g. ICD-10, HCPCS, NDC)
+    - Index drug exposure and index date identification
+    - Continuous insurance enrollment and treatment duration requirements
+
+2.  **Variable Derivation** — Derive analysis variables for:
+    -   Baseline period (demographics, comorbidities, clinical characteristics)
+    -   Exposure identification (treatment)
+    
+3.  **Outcome Definition** — Construct outcome variables according to the provided specifications and code lists.
+    -   Adherence/persistence
+    -   Treatment sequence
+    -   Clinical outcomes
+    -   Economic outcomes
+4.  **Analysis** — Conduct analyses as specified, including:
+    -   Time-to-Event analysis (OS, PFS, IDFS, DRFS, TTD, TTNT)
+    -   Modeling (regression model, cox model)
+    -   Sequencing Analysis (regimen distribution, treatment pattern)
+    -   Matching-adjusted indirect comparison (MAIC)
+    -   Other analysis (incidence, Richter's transformation risk)    
+
 ------------------------------------------------------------------------
 
 ### Immunology
@@ -67,23 +103,25 @@ Email **Jessica R. Peachey** (peachey.jessica@lilly.com), CC: **Gregory Cunningh
 
 The **Crohn's & Colitis Foundation IBD Plexus** dataset is a key real-world data source for immunology studies. The README file, data dictionary, and sample data are available in the RWD Data Source Reference Library (`IBD_Plexus` folder).
 
-**Point of contact:** Guangyong Li
+**Point of contact:** Hanbo Qiu, Guangyong Li
 
-#### Immunology RWD Project Workflow
+#### Immunology Project Workflow
 
-Project work begins after receiving the analysis specifications and code lists from the statistician or scientist. Once the requirements are finalised, programming activities proceed through the following standard steps:
+Project work begins after receiving the analysis specifications and code lists from the statistician or scientist. Once the requirements are finalized, programming activities proceed through the following standard steps:
 
 1.  **Cohort Selection** — Identify the study population based on predefined inclusion and exclusion criteria, including index dates and eligibility windows.
 
 2.  **Variable Derivation** — Derive analysis variables for:
-    -   Baseline period (e.g., demographics, clinical characteristics, prior treatments)
-    -   Follow-up period (e.g., exposures, outcomes, censoring variables)
+    - Baseline period (e.g., demographics, comorbidities, clinical characteristics)
+    - Exposure identification (treatment)
 
 3.  **Outcome Definition** — Construct outcome variables according to the provided specifications and code lists.
 
 4.  **Analysis** — Conduct analyses as specified, including:
-    -   Descriptive analyses (e.g., counts, proportions, summary statistics)
-    -   Statistical modelling or other inferential analyses, when applicable
+    - Descriptive analyses (e.g., counts, proportions, summary statistics)
+    - Propensity score matching and pre/post-matching covariate balance assessment
+    - Statistical modelling or other inferential analyses, when applicable
+    - Sensitivity analysis
 
 All steps are implemented in alignment with the approved specifications to ensure consistency, reproducibility, and analytical validity.
 
@@ -91,19 +129,94 @@ All steps are implemented in alignment with the approved specifications to ensur
 
 ### Cardiometabolic Health (CMH)
 
-*Resources for the CMH therapeutic area are under development and will be added in a future update.*
+**Point of contact:** Tianshu Feng
 
+#### CMH Project Workflow
+
+Project work begins after receiving the analysis specifications and code lists from the statistician or scientist. Once the requirements are finalized, programming activities proceed through the following standard steps:
+
+1. **Cohort Selection** — Identify the study population from claims and/or EMR datasets, applying protocol-defined inclusion and exclusion criteria in a stepwise manner
+    - A cohort attrition table is generated to track the number of patients remaining at each stage of cohort construction.
+
+2.  **Variable Derivation** — Derive analysis variables for:
+    - Baseline period (e.g., demographics, comorbidities, vital signs, laboratory test results, medication use, healthcare utilization, cost information)
+    
+3.  **Outcome Definition**:
+    - Outcome analytical datasets are constructed based on the predefined study outcomes in the protocol or programming specification.
+    - Outcome tables are then created to summarize these results by cohort, time window, or analytical subgroup as defined by the study design.
+    
+4.  **Analysis** — After all required variables have been generated, the primary analysts proceeds with the outlined statistical analysis
+    - In some cases, the project statistician may take responsibility for the modeling or advanced statistical components. Either the primary analyst or the validation analyst conducts a validation of the statistician's programming to ensure accuracy, reproducibility, and alignment with the analysis plan.
+    
+    
 ------------------------------------------------------------------------
 
 ### Neuroscience
 
-*Resources for the Neuroscience therapeutic area are under development and will be added in a future update.*
+#### Data Sources
+
+Two primary real-world database are used for Neuroscience HEOR and pharmacoepidemiology studies:
+
+**Optum Market Clarity**
+
+The Optum Market Clarity database integrates electronic medical records (EMR) with medical and pharmacy insurance claims, providing longitudinal patient-level data including diagnoses, laboratory results, clinical observations, and drug dispensing records.
+
+1.    Type: EHR + Claims
+
+2.    TA Coverage: Broad
+
+3.    Strength: Longitudinal claims data with detailed utilisation, diagnosis, and treatment patterns; large sample sizes representative of insured populations; useful for pharmacoepidemiology, health economics, and treatment pattern. analyses
+
+4.    Weakness: Oversampled for populations with Type 2 diabetes, overweight, and obesity, resulting in a less representative sample of the general population; may under-represent uninsured or Medicaid-only populations.
+
+**HealthVerity**
+
+The HealthVerity database links claims, EMR, lab, and other data sources at the patient level via de-identified IDs, supporting a wide range of lifecycle RWE applications.
+
+1.    Type: Claims + EMR + Lab + other linked data (enrollment via de-identified IDs)
+
+2.    TA Coverage: Broad
+
+3.    Strength: Detailed claims, lab, and EHR data linkable at the patient level; supports lifecycle RWE applications including feasibility, HEOR, safety, and market access.
+
+4.    Weakness: Some data quality concerns including duplicated diagnosis and medication refill records; unusually high numbers of prescription refills across dispensing tables, including potentially duplicated refills.
+
+The README file, data dictionary, and sample codelists are available in each project’s Documents/ folder.
+
+**Point of contact:** Hanbo Qiu, Yunfei Wang
+
+#### Neuroscience RWD Project Workflow
+
+Project work begins after receiving the analysis specifications and code lists from the statistician or scientist. Once the requirements are finalized, programming activities proceed through the following standard steps:
+
+1.  **Cohort Selection** — Identify the study population based on predefined inclusion and exclusion criteria, including:
+    -   Index drug exposure and index date identification
+    -   Disease confirmation (Type 2 diabetes, obesity, or MDD remission status)
+    -   Continuous enrollment eligibility windows and treatment duration requirements
+
+2.  **Variable Derivation** — Derive analysis variables for:
+    -   Baseline period (e.g., demographics, BMI, HbA1c, MDD history, comorbidities, prior treatments, healthcare utilisation and costs)
+    -   Follow-up period (e.g., treatment duration, drug discontinuation, proportion of days covered)
+
+3.  **Outcome Definition** — Construct outcome variables according to the provided specifications and codelists, including:
+    -   MDD relapse composite endpoint (psychiatric hospitalisation, ER visit, suicide/self-harm, non-remitted MDD, esketamine initiation)
+    -   Secondary metabolic outcomes (BMI/weight change)
+    -   Censoring rules (treatment discontinuation, enrollment end, death, end of follow-up)
+
+4.  **Analysis** — Conduct analyses as specified, including:
+    -   Propensity score matching and pre/post-matching covariate balance assessment (SMD < 0.1)
+    -   Time-to-event analysis using Cox proportional hazards regression with piecewise hazard modelling
+    - 	Sensitivity analysis (negative control outcomes, E-value, alternative censoring rules, drug class paired comparisons)
 
 ------------------------------------------------------------------------
 
-## RWD — Additional Training
+## RWD & HEOR — Additional Training
 
 | Course ID | Title |
 |-----------|-------|
 | 9317635 | MED-QUAL: Evaluation of Potential Data Integrity Issues in Approved Documents |
 | 9143108 | LRL-CDOS: DISCLOSE — Register Trial and Post Publicly |
+| 9223356 | DEV-HO: RWE 101 — MedComms RWE and RIM Vaults Guide for HEOR/RWE Users |
+| 9141872 | LRL-CDOS: DISCLOSE — Developing Medical Regulatory Documents and Payer Dossiers |
+| 9143086 | LRL-CDOS: DISCLOSE — Publications |
+| 9143114 | LRL-CDOS: DISCLOSE — Principles of Authorship |
